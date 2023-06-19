@@ -16,6 +16,7 @@ function App() {
         date: "2023-06-16",
         time: "8:00 AM",
         user: "one",
+        done: false,
       },
       {
         id: 2,
@@ -23,6 +24,7 @@ function App() {
         date: "2023-06-16",
         time: "8:00 AM",
         user: "one",
+        done: false,
       },
       {
         id: 3,
@@ -30,6 +32,7 @@ function App() {
         date: "2023-06-16",
         time: "8:00 AM",
         user: "one",
+        done: false,
       },
     ];
     setTasks(localStorageData);
@@ -61,6 +64,7 @@ function App() {
         time: newTime,
         user: assignUser,
         id: id,
+        done: false,
       };
       let allTasks = [...tasks, task];
       localStorage.setItem("tasks", JSON.stringify(allTasks));
@@ -76,12 +80,15 @@ function App() {
     if (editTask === "" || editDate === "" || editTime === "Time") {
       alert("Kindly fill all inputs");
     } else {
+      let task = tasks.find((e) => e.id === id);
+      let done = task.done;
       let updatedTask = {
         task: editTask,
         date: editDate,
         time: editTime,
         user: editUser,
         id: id,
+        done: done,
       };
       let newTask = tasks.map((task) =>
         task.id === id ? { ...updatedTask } : task
@@ -104,6 +111,13 @@ function App() {
     setEditTime("");
     setEditUser("");
     navigator("/");
+  };
+  let handleCheck = (id) => {
+    let task = tasks.find((e) => e.id === id);
+    task.done = !task.done;
+    let updatedTask = tasks.map((e) => (e.id === id ? { ...task } : e));
+    setTasks(updatedTask);
+    localStorage.setItem("tasks", JSON.stringify(updatedTask));
   };
   return (
     <div className="conatainer">
@@ -147,7 +161,7 @@ function App() {
           />
         </Route>
       </Routes>
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} handleCheck={handleCheck} />
     </div>
   );
 }

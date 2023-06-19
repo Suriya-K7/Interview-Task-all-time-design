@@ -23,8 +23,9 @@ body {
 .conatainer {
   width: 450px;
   border: 1px solid #aaa7b0;
-  border-radius: 3px;
+  border-radius: 5px;
   overflow: hidden;
+  box-shadow: 0 0 5px #000;
 }
 .row {
   display: flex;
@@ -55,6 +56,8 @@ body {
 }
 .row .addBtn:hover {
   color: #000;
+  font-size: 20px;
+  color: #1463ff;
   background-color: #edf7fc;
   cursor: pointer;
 }
@@ -118,15 +121,18 @@ body {
 .button-group button:hover {
   scale: 1.1;
 }
-.taskList {
+.taskList,
+.taskList .data {
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px;
+  padding: 0 15px 0 0;
   gap: 10px;
   color: #000;
   transition: 0.3s;
+}
+.taskList .data {
+  padding: 15px;
 }
 .taskList:hover {
   background-color: #edf7fc;
@@ -144,7 +150,19 @@ body {
   align-items: center;
   justify-content: center;
   color: rgb(107, 105, 105);
+  font-size: 20px;
   scale: 1.2;
+  transition: 0.3s;
+}
+.tick.check:hover {
+  color: red;
+}
+.tick:hover {
+  scale: 1.5;
+  color: green;
+}
+.fontAwesome {
+  z-index: -1;
 }
 .taskBody {
   display: flex;
@@ -155,6 +173,11 @@ body {
   font-size: 24px;
   font-weight: 500;
 }
+.taskTitle.check {
+  text-decoration: line-through;
+  color: gray;
+}
+
 .taskTime {
   font-weight: 300;
 }

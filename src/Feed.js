@@ -3,26 +3,31 @@ import { FaCheck } from "react-icons/fa";
 import { profile } from "./assets/index";
 import { Link } from "react-router-dom";
 
-const Feed = ({ tasks }) => {
+const Feed = ({ tasks, handleCheck }) => {
   return (
     <>
       {tasks.map((e, i) => (
-        <Link to={`${e.id}`} key={i}>
-          <div className="taskList" key={i}>
+        <div className="taskList" key={i}>
+          <Link to={`${e.id}`} key={i} className="data" data-set={e.id}>
             <div className="img">
               <img src={profile} alt="..." />
             </div>
             <div className="taskBody">
-              <div className="taskTitle">{e.task}</div>
+              <div className={!e.done ? "taskTitle" : "taskTitle check"}>
+                {e.task}
+              </div>
               <div className="taskTime">
                 {e.date} at {e.time}
               </div>
             </div>
-            <button className="tick">
-              <FaCheck />
-            </button>
-          </div>
-        </Link>
+          </Link>
+          <button
+            className={!e.done ? "tick" : "tick check"}
+            onClick={() => handleCheck(e.id)}
+          >
+            <FaCheck className="fontAwesome" />
+          </button>
+        </div>
       ))}
     </>
   );

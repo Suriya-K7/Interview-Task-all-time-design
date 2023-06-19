@@ -1,9 +1,9 @@
 import React from "react";
 import Feed from "./Feed";
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, handleCheck, check }) => {
   return (
     <>
-      <Feed tasks={tasks} />
+      <Feed tasks={tasks} handleCheck={handleCheck} />
     </>
   );
 };
