@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import NewTask from "./NewTask";
-import Tasks from "./Tasks";
+import NewTask from "./components/NewTask";
+import Tasks from "./components/Tasks";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import TaskList from "./TaskList";
-import EditTask from "./EditTask";
+import TaskList from "./components/TaskList";
+import EditTask from "./components/EditTask";
 
 function App() {
   let [tasks, setTasks] = useState([]);

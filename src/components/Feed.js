@@ -1,6 +1,6 @@
 import React from "react";
 import { FaCheck } from "react-icons/fa";
-import { profile } from "./assets/index";
+import { profile } from "../assets/index";
 import { Link } from "react-router-dom";
 
 const Feed = ({ tasks, handleCheck }) => {

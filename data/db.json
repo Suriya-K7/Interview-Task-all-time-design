@@ -1,0 +1,28 @@
+{
+    "tasks": [
+        {
+          "id": 1,
+          "task": "react",
+          "date": "2023-06-16",
+          "time": "8:00 AM",
+          "user": "one",
+          "done": false
+        },
+        {
+          "id": 2,
+          "task": "Angular",
+          "date": "2023-06-16",
+          "time": "8:00 AM",
+          "user": "one",
+          "done": false
+        },
+        {
+          "id": 3,
+          "task": "web development",
+          "date": "2023-06-16",
+          "time": "8:00 AM",
+          "user": "one",
+          "done": false
+        }
+      ]
+  }
