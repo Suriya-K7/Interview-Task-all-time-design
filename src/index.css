@@ -207,3 +207,8 @@ body {
   scale: 1.1;
   text-shadow: 0 0 5px #000;
 }
+@media (max-width: 500px) {
+  .conatainer {
+    width: 100%;
+  }
+}
